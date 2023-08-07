@@ -1,0 +1,67 @@
+interface--> like type alias but it is reopen and type alias is closed
+interface --> describes the shape of the object
+
+with objects:-
+
+interface childone {
+    country:string,
+    job:string
+}
+interface childone {
+    age:number
+}
+let details:childone = {
+    country : 'Egypt',
+    job:'software engineer',
+    age:21
+}
+console.log(details.job);
+
+with functions:-
+
+interface methods {
+    getage():number,
+    getdetails:()=>string,
+    Doublenumber(number:number):number,
+    username:string
+}
+let mymethods : methods = {
+    username:'anwar',
+    getage(){return 21},
+    getdetails:()=>{  return `${mymethods.username}`},
+    Doublenumber(number){return number * 2}
+}
+console.log(mymethods.Doublenumber(10));
+console.log(mymethods.getage());
+console.log(mymethods.getdetails());
+
+type annotations with class
+
+static property 
+
+class prperty {
+    static counter = 0;
+    constructor (public name:string, public age:number){
+        prperty.counter++;
+    }
+    static getobjectnumber ():string {
+        return  `number created objects ${this.counter}`
+    }
+}
+
+let obj3 = new prperty ('anwar',21);
+let obj4 = new prperty ('anwar',21);
+let obj5 = new prperty ('anwar',21);
+let obj6 = new prperty ('anwar',21);
+
+console.log(prperty.getobjectnumber());
+
+difference between type alias and interfaces 
+
+___________________________type alias______________________________
+1- it is closed [can declare two type with the same name].
+2- type alias inherit anothor type with intersection type
+
+___________________________interfaces______________________________
+1- it is open [can declare two interface with the same name make them merge].
+2- interface inherit anothor interface with extends keyword
